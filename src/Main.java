@@ -12,7 +12,10 @@ public class Main {
         addEdgesLG(graphList);
         addEdgesMG(graphMatriz);
 
-
+        Digraph digraphList = new DigraphList(numVertices);
+        Digraph digraphMatrix = new DigraphMatrix(numVertices);
+        addEdgesLD(digraphList);
+        addEdgesMD(digraphMatrix);
 
         // Menu de opções
         Scanner scanner = new Scanner(System.in);
@@ -23,6 +26,7 @@ public class Main {
             System.out.println("3. Ordenação Topológica");
             System.out.println("4. Árvore Geradora Mínima (Kruskal)");
             System.out.println("5. Árvore Geradora Mínima (Prim)");
+            System.out.println("6. Caminho Mínimo entre Todos os Pares (Floyd-Warshall)");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -146,6 +150,39 @@ public class Main {
                     }
                     break;
 
+                case 6: // Caminho Mínimo entre Todos os Pares (Floyd-Warshall)
+                    System.out.println("\nDigrafo com Lista de Adjacências:");
+                    System.out.println(digraphList);//toString
+                    System.out.println("Digrafo com Matriz de Adjacências:");
+                    System.out.println(digraphMatrix);//toString
+
+                    System.out.println("Algoritmo: Caminho Mínimo (Floyd-Warshall)");
+
+                    System.out.println("\nDigrafo com Lista de Adjacências exe");
+                    FloydWarshall fwList = new FloydWarshall(digraphList);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        fwList.computeShortestPaths();
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Distâncias mínimas:");
+                    fwList.printDistances();
+
+                    System.out.println("\nDigrafo com Matriz de Adjacências exe");
+                    FloydWarshall fwMatrix = new FloydWarshall(digraphMatrix);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        fwMatrix.computeShortestPaths();
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Distâncias mínimas:");
+                    fwMatrix.printDistances();
+                    break;
+
                 default:
                     System.out.println("Opção inválida.");
             }
@@ -165,6 +202,22 @@ public class Main {
     }
 
     private static void addEdgesMG(Graph graph) {
+        graph.addEdge(0, 1, 4);
+        graph.addEdge(0, 2, 1);
+        graph.addEdge(1, 3, 1);
+        graph.addEdge(2, 3, 5);
+        graph.addEdge(3, 4, 3);
+    }
+
+    private static void addEdgesLD(Digraph graph) {
+        graph.addEdge(0, 1, 4);
+        graph.addEdge(0, 2, 1);
+        graph.addEdge(1, 3, 1);
+        graph.addEdge(2, 3, 5);
+        graph.addEdge(3, 4, 3);
+    }
+
+    private static void addEdgesMD(Digraph graph) {
         graph.addEdge(0, 1, 4);
         graph.addEdge(0, 2, 1);
         graph.addEdge(1, 3, 1);
