@@ -175,13 +175,13 @@ public class Main {
                     BellmanFord bfMatrix = new BellmanFord(digraphMatrix);
                     for(int i = 0; i < exe; i++) {
                         startTime = System.nanoTime();
-                        bfList.computeShortestPaths(0);
+                        bfMatrix.computeShortestPaths(0);
                         endTime = System.nanoTime();
                         System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
                     }
 
                     System.out.println("Caminhos mínimos:");
-                    bfList.printDistances(0);
+                    bfMatrix.printDistances(0);
                     break;
 					
                 case 7: // Caminho Mínimo entre Todos os Pares (Floyd-Warshall)
