@@ -26,7 +26,7 @@ public class Main {
             System.out.println("3. Ordenação Topológica");
             System.out.println("4. Árvore Geradora Mínima (Kruskal)");
             System.out.println("5. Árvore Geradora Mínima (Prim)");
-            System.out.println("6. Caminho mínimo de origem única para todos os vértices (Bellman-Ford");
+            System.out.println("6. Caminho mínimo de origem única para todos os vértices (Bellman-Ford)");
             System.out.println("7. Caminho Mínimo entre Todos os Pares (Floyd-Warshall)");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
