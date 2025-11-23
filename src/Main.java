@@ -13,7 +13,7 @@ public class Main {
         addEdgesMG(graphMatriz);
 
         Digraph digraphList = new DigraphList(numVertices);
-        Digraph digraphMatrix = new DigraphMatrix(numVertices);
+        Digraph digraphMatrix = new DigraphMatriz(numVertices);
         addEdgesLD(digraphList);
         addEdgesMD(digraphMatrix);
 
@@ -26,7 +26,9 @@ public class Main {
             System.out.println("3. Ordenação Topológica");
             System.out.println("4. Árvore Geradora Mínima (Kruskal)");
             System.out.println("5. Árvore Geradora Mínima (Prim)");
-            System.out.println("6. Caminho Mínimo entre Todos os Pares (Floyd-Warshall)");
+            System.out.println("6. Caminho mínimo de origem única para todos os vértices (Bellman-Ford)");
+            System.out.println("7. Caminho mínimo de origem única para todos os vértices (Dijkstra)");
+            System.out.println("8. Caminho Mínimo entre Todos os Pares (Floyd-Warshall)");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -149,8 +151,74 @@ public class Main {
                         System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
                     }
                     break;
+                    
+                case 6:
+					System.out.println("\nDigrafo com Lista de Adjacências:");
+                    System.out.println(digraphList);//toString
+                    System.out.println("Digrafo com Matriz de Adjacências:");
+                    System.out.println(digraphMatrix);//toString
+                    
+                    System.out.println("Algoritmo: Caminho mínimo de origem única para todos os vértices (Bellman-Ford)");
 
-                case 6: // Caminho Mínimo entre Todos os Pares (Floyd-Warshall)
+					System.out.println("\nDigrafo com Lista de Adjacências exe");
+                    BellmanFord bfList = new BellmanFord(digraphList);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        bfList.computeShortestPaths(0);
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Caminhos mínimos:");
+                    bfList.printDistances(0);
+
+                    System.out.println("\nDigrafo com Matriz de Adjacências exe");
+                    BellmanFord bfMatrix = new BellmanFord(digraphMatrix);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        bfList.computeShortestPaths(0);
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Caminhos mínimos:");
+                    bfList.printDistances(0);
+                    break;
+                    
+               case 7:
+					System.out.println("\nDigrafo com Lista de Adjacências:");
+                    System.out.println(digraphList);//toString
+                    System.out.println("Digrafo com Matriz de Adjacências:");
+                    System.out.println(digraphMatrix);//toString
+                    
+                    System.out.println("Algoritmo: Caminho mínimo de origem única para todos os vértices (Dijkstra)");
+
+					System.out.println("\nDigrafo com Lista de Adjacências exe");
+                    Dijkstra dList = new Dijkstra(digraphList);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        dList.computeShortestPaths(0);
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Caminhos mínimos:");
+                    dList.printDistances(0);
+
+                    System.out.println("\nDigrafo com Matriz de Adjacências exe");
+                    Dijkstra dMatrix = new Dijkstra(digraphMatrix);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        dMatrix.computeShortestPaths(0);
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("Caminhos mínimos:");
+                    dMatrix.printDistances(0);
+                    break;
+					
+                case 8: // Caminho Mínimo entre Todos os Pares (Floyd-Warshall)
                     System.out.println("\nDigrafo com Lista de Adjacências:");
                     System.out.println(digraphList);//toString
                     System.out.println("Digrafo com Matriz de Adjacências:");
