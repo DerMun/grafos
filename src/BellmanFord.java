@@ -7,7 +7,7 @@ public class BellmanFord {
     private List<Edge> arestas;
 
     public BellmanFord(Digraph graph) {
-        this.V = graph.getV();;
+        this.V = graph.getV();
         this.arestas = new ArrayList<>();
         
         for (int u = 0; u < V; u++) {
