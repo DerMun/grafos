@@ -7,7 +7,7 @@ public class BellmanFord {
     private List<Edge> arestas;
 
     public BellmanFord(Digraph graph) {
-        this.V = graph.getV();;
+        this.V = graph.getV();
         this.arestas = new ArrayList<>();
         
         for (int u = 0; u < V; u++) {
@@ -35,7 +35,7 @@ public class BellmanFord {
         // Detecção de ciclo negativo
         for (Edge e : arestas) {
             if (dist[e.v] + e.weight < dist[e.w]) {
-                System.out.println("Grafo contém ciclo de peso negativo!");
+                System.out.println("\nGrafo contém ciclo de peso negativo!\n");
                 return;
             }
         }
@@ -43,7 +43,7 @@ public class BellmanFord {
 	}
         // Exibe distâncias
     public void printDistances(int fonte) {
-        System.out.println("Distâncias a partir do vértice " + fonte + ":");
+        System.out.println("\nDistâncias a partir do vértice " + fonte + ":");
         for (int i = 0; i < V; i++) {
             System.out.println("Para " + i + " -> " + dist[i]);
         }
