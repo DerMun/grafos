@@ -95,7 +95,30 @@ public class Main {
 
 
                 case 3:
-                System.out.println("...");
+                    System.out.println("\nDigrafo com Lista de Adjacências:");
+                    System.out.println(digraphList);//toString
+                    System.out.println("Digrafo com Matriz de Adjacências:");
+                    System.out.println(digraphMatrix);//toString
+
+                    System.out.println("Algoritmo: Ordenação Topológica");
+
+                    System.out.println("\nDigrafo com Graph Lista de Adjacências exe");
+                    TopologicalSort topoSortList = new TopologicalSort(digraphList);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        System.out.println(topoSortList.sort());
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
+
+                    System.out.println("\nDigrafo com Graph Matriz de Adjacências exe");
+                    TopologicalSort topoSortMatrix = new TopologicalSort(digraphMatrix);
+                    for(int i = 0; i < exe; i++) {
+                        startTime = System.nanoTime();
+                        System.out.println(topoSortMatrix.sort());
+                        endTime = System.nanoTime();
+                        System.out.println("Tempo de execução: " + (endTime - startTime) + " ns");
+                    }
                 break;
 
 
