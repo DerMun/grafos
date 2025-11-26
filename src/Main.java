@@ -17,6 +17,22 @@ public class Main {
         addEdgesLD(digraphList);
         addEdgesMD(digraphMatrix);
 
+        //usar abaixo para ler arquivos e criar relatório. e acima para testes
+        /*Digraph digraphList = null;
+        Digraph digraphMatrix = null;
+        try {
+            File file = new File("src/RandomGraphSamples/sample100-1980.gr");
+
+            digraphList = GraphReader.readAsList(file);
+            System.out.println(digraphList);
+
+            digraphMatrix = GraphReader.readAsMatrix(file);
+            System.out.println(digraphMatrix);
+
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }*/
+
         // Menu de opções
         Scanner scanner = new Scanner(System.in);
         while (true) {
